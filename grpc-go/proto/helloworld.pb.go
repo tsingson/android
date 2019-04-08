@@ -7,9 +7,10 @@ package protos
 import (
 	"fmt"
 	"math"
+
 	"github.com/golang/protobuf/proto"
-	"google.golang.org/grpc"
 	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

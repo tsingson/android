@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     findViewById<Button>(R.id.say_hi).setOnClickListener {
 
-      val channel = ManagedChannelBuilder.forAddress("10.0.2.2", 8080)
+      val channel = ManagedChannelBuilder.forAddress("127.0.0.1", 8080)
           .usePlaintext(true)
           .build()
 

@@ -1,11 +1,14 @@
 package main
 
 import (
-	"log"
 	"net"
+
+	log "github.com/tsingson/zaplogger"
+
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "github.com/TakuSemba/grpc-go/proto"
+
+	pb "github.com/tsingson/android/grpc-go/proto"
 )
 
 const (
@@ -15,17 +18,18 @@ const (
 type server struct{}
 
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+	log.Info("Say Hello --------------->")
 	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
 }
 
 func (s *server) Order(ctx context.Context, in *pb.CoffeeRequest) (*pb.CoffeeResponse, error) {
+	log.Info("Order --------------->")
 	return &pb.CoffeeResponse{
-		Price: 560,
-		Name: in.Name,
+		Price:   560,
+		Name:    in.Name,
 		Message: "Thank you for ordering " + in.Name,
 	}, nil
 }
-
 
 func main() {
 	lis, err := net.Listen("tcp", port)
